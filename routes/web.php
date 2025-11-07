@@ -24,3 +24,18 @@ Route::get('/section1', function () {
 Route::get('/section2', function () {
     return view('admin.section2');
 });
+
+// Activity: Menus (Blade inheritance)
+Route::prefix('menus')->group(function () {
+    Route::get('/', function () {
+        return view('menus.home');
+    })->name('menus.home');
+
+    Route::get('/photos', function () {
+        return view('menus.photos');
+    })->name('menus.photos');
+
+    Route::get('/contact', function () {
+        return view('menus.contact');
+    })->name('menus.contact');
+});

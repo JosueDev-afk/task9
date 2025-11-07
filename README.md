@@ -61,3 +61,47 @@
   - Usar PHP 7.4/8.0, o
   - Actualizar Laravel a 8/10/11 para soporte nativo de PHP 8.1+.
 - Para personalizar el tema: puedes cambiar el color del sidebar (`sidebar-dark-...`, `sidebar-light-...`), activar `text-sm`, y añadir `content-header` con breadcrumbs.
+
+---
+
+# Actividad “Menus” — Blade con herencia
+
+**Descripción**
+- Sistema con una vista primaria (layout) y vistas secundarias que heredan de ella.
+- Objetivo: comprender y usar el sistema de plantillas Blade.
+
+**Estructura**
+- Layout primario: `resources/views/layouts/menus.blade.php`
+- Vistas secundarias:
+  - `resources/views/menus/home.blade.php`
+  - `resources/views/menus/photos.blade.php`
+  - `resources/views/menus/contact.blade.php`
+- Rutas: `routes/web.php`
+  - `GET /menus` → `menus.home`
+  - `GET /menus/photos` → `menus.photos`
+  - `GET /menus/contact` → `menus.contact`
+
+**Comportamiento del menú**
+- El layout resalta la opción activa usando `request()->routeIs('menus.*')` para cada sección, cumpliendo el criterio de destacar la sección seleccionada.
+
+**Footer**
+- El footer con la información del estudiante se incluye en el layout principal y se muestra en todas las vistas.
+
+**Ejecución**
+- `composer install`
+- `cp .env.example .env && php artisan key:generate`
+- Servir desde `public`: `php -S 127.0.0.1:8000 -t public`
+- Navegar:
+  - `http://127.0.0.1:8000/menus`
+  - `http://127.0.0.1:8000/menus/photos`
+  - `http://127.0.0.1:8000/menus/contact`
+
+**Entrega**
+- Edita `README.md` (este documento) con la descripción de la actividad.
+- Sube el proyecto a GitHub y entrega un documento con capturas de cada sección y la URL del repositorio.
+
+**Criterios de evaluación**
+- Descripción en `README.md`.
+- Vista primaria con menú.
+- Vistas secundarias (al menos tres) con contenido descriptivo.
+- Footer visible en todas las vistas.
